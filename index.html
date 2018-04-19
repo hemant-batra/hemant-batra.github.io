@@ -5,8 +5,8 @@
 <li>Verify OTP</li>
 </ol>
 <p>&nbsp;</p>
+<hr/>
 <h2><span style="color: #0000ff;"><strong style="font-family: Calibri;">Get Status of User Token</strong></span></h2>
-<hr />
 <table border="1" cellpadding="5">
 <tbody>
 <tr>
@@ -23,45 +23,39 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<table border="1" cellpadding="5"><caption><strong>Response JSON</strong></caption>
+<br>
+<strong style="font-family: Calibri;">Response JSON</strong>
+<table border="1" cellpadding="5" width="60%">
 <tbody style="font-family: Calibri;">
 <tr>
-<td style="width: 92.6667px;"><strong>Scenario</strong></td>
-<td style="width: 126.667px;"><strong>HTTP Status Code</strong></td>
-<td style="width: 276px;"><strong>Sample Response JSON</strong></td>
+<td  style="font-family: Calibri;"><strong style="font-family: Calibri;">Scenario</strong></td>
+<td  style="font-family: Calibri;"><strong style="font-family: Calibri;">HTTP Status Code</strong></td>
+<td  style="font-family: Calibri;"><strong style="font-family: Calibri;">Sample Response JSON</strong></td>
 </tr>
 <tr>
-<td style="width: 92.6667px;">User token is<br />not valid</td>
-<td style="width: 126.667px;">&nbsp;200</td>
-<td style="width: 276px;">&nbsp;{<br />"userTokenStatus": "INVALID_TOKEN",<br />"userId": null,<br />"firstName": null,<br />"lastName": null,<br />"emailId": null,<br />"mobileNumber": null<br />}</td>
+<td  style="font-family: Calibri;">User token is not valid</td>
+<td  style="font-family: Calibri;">200</td>
+<td  style="font-family: Calibri;">{"userTokenStatus": "INVALID_TOKEN",<br> "userId": null,<br> "firstName": null,<br> "lastName": null,<br> "emailId": null,<br> "mobileNumber": null<br>}</td>
 </tr>
 <tr>
-<td style="width: 92.6667px;">&nbsp;</td>
-<td style="width: 126.667px;">&nbsp;</td>
-<td style="width: 276px;">&nbsp;</td>
+<td  style="font-family: Calibri;">User token is valid but user is not yet registered in the application</td>
+<td  style="font-family: Calibri;">200</td>
+<td  style="font-family: Calibri;">{"userTokenStatus": "ADD_USER",<br> "userId": null,<br> "firstName": "Hemant",<br> "lastName": "Batra",<br> "emailId": "hemant@gmail.com",<br> "mobileNumber": "+919000000000"<br>}</td>
 </tr>
 <tr>
-<td style="width: 92.6667px;">&nbsp;</td>
-<td style="width: 126.667px;">&nbsp;</td>
-<td style="width: 276px;">&nbsp;</td>
+<td  style="font-family: Calibri;">User token is valid and the user is registered but the card is not yet created</td>
+<td  style="font-family: Calibri;">200</td>
+<td  style="font-family: Calibri;">{<br>"userTokenStatus": "ADD_CARD",<br> "userId":"6e96cf94-7a97-43b9-ab41-e6bac0cccd83",<br> "firstName": "Hemant",<br> "lastName": "Batra",<br> "emailId": "hemant@gmail.com",<br> "mobileNumber": "+919000000000"<br>}</td>
 </tr>
 <tr>
-<td style="width: 92.6667px;">&nbsp;</td>
-<td style="width: 126.667px;">&nbsp;</td>
-<td style="width: 276px;">&nbsp;</td>
+<td  style="font-family: Calibri;">User token is valid and both user and card registration have been successfully completed</td>
+<td  style="font-family: Calibri;">200</td>
+<td  style="font-family: Calibri;">{<br>"userTokenStatus":"USER_ALREADY_REGISTERED",<br> "userId":"6e96cf94-7a97-43b9-ab41-e6bac0cccd83",<br> "firstName": "Hemant",<br> "lastName": "Batra",<br> "emailId": "hemant@gmail.com",<br> "mobileNumber": "+919000000000"<br>}</td>
 </tr>
 <tr>
-<td style="width: 92.6667px;">&nbsp;</td>
-<td style="width: 126.667px;">&nbsp;</td>
-<td style="width: 276px;">&nbsp;</td>
-</tr>
-<tr>
-<td style="width: 92.6667px;">&nbsp;</td>
-<td style="width: 126.667px;">&nbsp;</td>
-<td style="width: 276px;">&nbsp;</td>
+<td  style="font-family: Calibri;">There has been an application error while processing the request</td>
+<td  style="font-family: Calibri;">404</td>
+<td  style="font-family: Calibri;"><p>{<br />"errors": [<br />{<br />"code": 5050,<br />"field": null,<br />"message": "We are unable to perform the<br />requested operation due to a technical issue, please<br />contact our support desk"<br />}<br />]<br />}</p></td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
